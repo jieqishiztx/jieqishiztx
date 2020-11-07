@@ -1,0 +1,136 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <title>LOVE</title>
+  <meta charset="utf-8">
+  <style>
+   .box{
+    background:red;
+    width:240px;
+    height:240px;
+    margin:200px auto;
+    transform: rotate(45deg) scale(0.85);
+    animation:love 1s infinite;
+    box-shadow:0 0 20px rgba(255,0,0,0.7);
+    margin-bottom:100px;}
+   body{
+    padding:0px;
+    margin:0px;
+    background:pink;
+    background-size:100%;}
+   body::before{
+   content:"";
+   position:absolute;
+   top:0px;
+   left:0px;
+   height:100%;
+   width:100%;
+   background:url("https://m.qpic.cn/psc?/V548htLU0Q1vPn3HOUcr3anbLs00wI82/bqQfVz5yrrGYSXMvKr.cqUI7lZKuCI32RGqpygAdz3*KljWW7qytuJaWgkHnl*p6rdhw7eLPTDrH42kaERovG4oUYQcTUMNWVEL1WBMqbQg!/b&ek=1&kp=1&pt=0&bo=OASABwAAAAABF4s!&tl=1&su=0251651202&vuin=577585167&tm=1604775600&t=5#sce=12-1-1&rf=v1_ht5_qz_3.4.0_001_idc_b-4-0");
+   z-index:-1;
+   background-size:100%;
+   filter:blur(3px);
+   } 
+   .box::before,.box::after{
+    content:"";
+    position:absolute;
+    background:red;
+    width:240px;
+    height:240px;
+    border-radius:50%;
+    box-shadow:0 0 20px rgba(255,0,0,0.7);}
+    
+   .box::before{
+    left:-130px;}
+    
+   .box::after{
+    top:-130px;}
+    
+   @keyframes love{
+    0%{transform: rotate(45deg) scale(0.85);}
+    50%{transform: rotate(45deg) scale(1);}
+    100%{transform: rotate(45deg) scale(1);}}
+    
+   .p{
+    text-align:center;
+    font-size:60px;
+    font-weight:1000;
+    color:rgba(255,0,0,1);
+    
+   }
+   #by{
+   text-align:center;
+   font-size:10px;
+   }
+  </style>
+  
+  <script>
+  function settime(){
+  	var day=new Date();
+  	var yy=day.getFullYear();
+  	var m=day.getMonth();
+  	m=m+1;
+  	var dd=day.getDate();
+  	var hh=day.getHours();
+  	var mm=day.getMinutes();
+  	var ss=day.getSeconds();
+  	
+  	if(m<10){
+  	var m1="0"+m;
+  	}else{
+  	var m1=m;
+  	}
+  	if(dd<10){
+  	var dd1="0"+dd;
+  	}else{
+  	var dd1=dd;
+  	}
+  	if(hh<10){
+  	var hh1="0"+hh;
+  	}else{
+  	var hh1=hh;
+  	}
+  	if(mm<10){
+  	var mm1="0"+mm;
+  	}else{
+  	var mm1=mm;
+  	}
+  	if(ss<10){
+  	var ss1="0"+ss;
+  	}else{
+  	var ss1=ss;
+  	}
+  	
+  	document.getElementById("time").innerHTML=yy+"年"+m1+"月"+dd1+"日";
+  	document.getElementById("time2").innerHTML=hh1+":"+mm1+":"+ss1;
+  	var days1="2020-7-21";
+  	var days2=yy+"-"+m+"-"+dd;
+  	days1=Date.parse(days1);
+  	days2=Date.parse(days2);
+  	
+  	var days21=hh*60*60*1000;
+  	var days22=mm*60*1000;
+  	var days23=ss*1000;
+  	var days2=days2+days21+days22+days23;
+  	result=days2-days1;
+  	result=result/1000/60/60/24;
+  	document.getElementById("sj").innerHTML="我们相恋的第"+new Number(result).toFixed(10)+"天";
+
+  	
+  	result=result*24*60*60
+  	document.getElementById("sj2").innerHTML="第"+result+"秒";
+  	}
+  	setInterval("settime()",300);
+	 </script>
+ </head>
+ 
+ <body>
+  <div class="box"></div>
+  <p class="p">ZTX——ZJY</p>
+  <p class="p">今天是</p>
+  <p id="time" class="p"></p>
+  <p id="time2" class="p"></p>
+  <p id="sj" class="p"></p>
+  <p id="sj2" class="p"></p>
+  <p id="by">made by 炁炁</p>
+ </body>
+</html>
